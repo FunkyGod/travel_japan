@@ -1,0 +1,18 @@
+{
+  "name": "日本旅行手册 · Japan Travel Guide",
+  "short_name": "日本旅行手册",
+  "description": "以顶级攻略路线为主线的日本旅游指南，覆盖季节、温泉、美食与实用贴士。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff5f8",
+  "theme_color": "#f45d87",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+:root {
+  --sakura-50: #fff5f8;
+  --sakura-100: #ffe3ec;
+  --sakura-200: #ffc4d6;
+  --sakura-300: #ff9db9;
+  --sakura-400: #ff7fa4;
+  --sakura-500: #f45d87;
+  --sakura-600: #e04476;
+  --sakura-700: #b83460;
+  --cream: #fffaf4;
+  --milk: #fffdf9;
+  --mint: #b8e7d3;
+  --sky: #bfe3f5;
+  --lemon: #ffe6a3;
+  --peach: #ffd9c2;
+  --ink: #5a3a49;
+  --ink-soft: #8c6a79;
+  --ink-faint: #b395a1;
+  --line: #f3dce5;
+  --card: #ffffff;
+  --shadow-soft: 0 10px 30px rgba(244, 93, 135, 0.12);
+  --shadow-pop: 0 14px 36px rgba(244, 93, 135, 0.20);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+  --font-display: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  --font-body: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  --maxw: 1160px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 195, 214, 0.24), transparent 34%),
+    radial-gradient(circle at 88% 12%, rgba(191, 227, 245, 0.22), transparent 32%),
+    radial-gradient(circle at 60% 100%, rgba(255, 230, 163, 0.18), transparent 38%),
+    var(--cream);
+  min-height: 100vh;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0;
+}
+
+a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: 3px solid var(--sakura-400);
+  outline-offset: 3px;
+}
+
+.app-main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* 通用容器 */
+.page {
+  padding-top: 32px;
+}
+
+.section {
+  margin-top: 48px;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-kicker {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--sakura-500);
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+}
+
+/* 卡片网格 */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 900px) {
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .app-main { padding: 0 16px 60px; }
+}
+
+/* 按钮与标签 */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--sakura-100);
+  color: var(--sakura-700);
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid var(--sakura-200);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--mint);
+  color: #2d7a5c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* 打印样式：隐藏导航/装饰/交互元素，只保留内容，适合打印成手册 */
+@media print {
+  .nav,
+  .sakura-layer,
+  .footer,
+  .menu-btn,
+  .nav-actions,
+  .hero-actions,
+  .fav-btn,
+  .fav-pos,
+  .more-link,
+  .detail-foot,
+  .search-btn,
+  .back,
+  .filters,
+  .filter-bar,
+  .tag-row,
+  .search {
+    display: none !important;
+  }
+  body { background: #fff !important; }
+  .app-main { max-width: 100%; padding: 0; }
+  .page { padding-top: 0; }
+  .route-card,
+  .tip-item,
+  .stat,
+  .region-card,
+  .food-card,
+  .onsen-card,
+  .season-card,
+  .top-item,
+  .timeline-body,
+  .link-card,
+  .highlight-box,
+  .note-card {
+    box-shadow: none !important;
+    border-color: #e3d3db !important;
+    break-inside: avoid;
+  }
+  .img-slot { border: none; }
+  .img-slot-empty { display: none; }
+}
