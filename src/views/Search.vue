@@ -80,11 +80,62 @@ const index = [
   })),
 ]
 
+// 将查询拆分为多个关键词（按空白切分），用于 AND 匹配
+const keywords = computed(() =>
+  q.value.trim().toLowerCase().split(/\s+/).filter(Boolean)
+)
+
+// 高亮文本：把命中关键词包进 <mark> 标签，其余保持原样
+function highlight(text = '') {
+  if (!keywords.value.length) return text
+  const escaped = text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const pattern = new RegExp(keywords.value.map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'gi')
+  return escaped.replace(pattern, m => `<mark>${m}</mark>`)
+}
+
+// 截取并高亮结果摘要：优先从命中关键词附近取一段文本
+function buildSnippet(rec) {
+  const lower = rec.text.toLowerCase()
+  const kws = keywords.value
+  // 找到最早命中的关键词位置
+  let at = -1
+  for (const k of kws) {
+    const idx = lower.indexOf(k)
+    if (idx !== -1 && (at === -1 || idx < at)) at = idx
+  }
+  if (at === -1) return highlight(rec.text.slice(0, 60))
+  // 以命中位置为中心截取约 80 字，前后补省略号
+  const start = Math.max(0, at - 20)
+  const end = Math.min(rec.text.length, start + 80)
+  const prefix = start > 0 ? '…' : ''
+  const suffix = end < rec.text.length ? '…' : ''
+  return prefix + highlight(rec.text.slice(start, end)) + suffix
+}
+
+// 搜索结果：支持多关键词 AND 匹配，并按相关度打分排序
 const results = computed(() => {
-  const kw = q.value.trim()
-  if (!kw) return []
-  const lower = kw.toLowerCase()
-  return index.filter(i => i.title.toLowerCase().includes(lower) || i.text.toLowerCase().includes(lower))
+  const kws = keywords.value
+  if (!kws.length) return []
+  return index
+    .map(rec => {
+      const title = rec.title.toLowerCase()
+      const text = rec.text.toLowerCase()
+      // 每个关键词都必须命中标题或正文之一
+      const allHit = kws.every(k => title.includes(k) || text.includes(k))
+      if (!allHit) return null
+      // 打分：标题命中权重更高，命中位置越靠前越相关
+      let score = 0
+      for (const k of kws) {
+        const ti = title.indexOf(k)
+        const xi = text.indexOf(k)
+        if (ti !== -1) score += 100 - Math.min(ti, 40)
+        if (xi !== -1) score += 50 - Math.min(xi, 30)
+      }
+      return { rec, score }
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.score - a.score)
+    .map(x => x.rec)
 })
 
 const grouped = computed(() => {
@@ -114,7 +165,8 @@ const grouped = computed(() => {
       <h2 class="group-title">{{ kind }}</h2>
       <div class="result-list">
         <router-link v-for="r in list" :key="r.title" :to="r.to" class="result-item">
-          <span class="result-title">{{ r.title }}</span>
+          <span class="result-title" v-html="highlight(r.title)"></span>
+          <span class="result-snippet" v-html="buildSnippet(r)"></span>
           <span class="result-arrow">→</span>
         </router-link>
       </div>
@@ -148,8 +200,9 @@ const grouped = computed(() => {
 .result-list { display: grid; gap: 8px; }
 .result-item {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
   background: var(--milk);
   border: 1px solid var(--sakura-100);
   border-radius: 14px;
@@ -158,5 +211,19 @@ const grouped = computed(() => {
   transition: transform 0.2s, border-color 0.2s;
 }
 .result-item:hover { transform: translateY(-2px); border-color: var(--sakura-300); }
-.result-arrow { color: var(--sakura-400); font-weight: 900; }
+.result-title { font-size: 15px; }
+.result-snippet {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-faint);
+}
+.result-snippet mark,
+.result-title mark {
+  background: var(--sakura-100);
+  color: var(--sakura-600);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.result-arrow { align-self: flex-end; color: var(--sakura-400); font-weight: 900; }
 </style>
