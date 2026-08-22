@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Japanese Alps illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bfe7ff"/>
+      <stop offset="55%" stop-color="#f7fbff"/>
+      <stop offset="100%" stop-color="#fff8ef"/>
+    </linearGradient>
+    <linearGradient id="mountain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7ea6b8"/>
+      <stop offset="100%" stop-color="#4f7380"/>
+    </linearGradient>
+    <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b5eef0"/>
+      <stop offset="100%" stop-color="#78cdd4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1280" cy="150" r="110" fill="#ffe6b8" opacity=".8"/>
+  <circle cx="1280" cy="150" r="160" fill="#ffe6b8" opacity=".25"/>
+  <path d="M0 630 C180 560 260 590 380 540 C470 500 560 420 700 450 C830 480 900 390 1040 430 C1180 470 1270 380 1400 440 C1490 480 1540 500 1600 490 L1600 900 L0 900 Z" fill="#dff2e8"/>
+  <path d="M-10 650 L260 360 L420 560 L650 260 L900 590 L1120 300 L1400 620 L1610 420 L1610 900 L-10 900 Z" fill="url(#mountain)"/>
+  <path d="M180 630 L340 470 L430 600 L540 420 L650 610 L760 360 L900 640 L1030 450 L1140 630 L1230 520 L1320 640 L1600 500 L1600 900 L0 900 L0 690 Z" fill="#6e919e" opacity=".55"/>
+  <path d="M360 760 C490 730 620 740 760 725 C930 705 1060 725 1200 710 C1300 700 1410 705 1510 720 L1510 900 L360 900 Z" fill="url(#lake)"/>
+  <path d="M770 665 L820 590 L872 665 L842 665 L842 725 L798 725 L798 665 Z" fill="#fdf7ef"/>
+  <path d="M405 710 C460 675 500 680 560 708" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity=".8"/>
+  <path d="M1040 720 C1100 690 1180 690 1240 720" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity=".8"/>
+  <g fill="#5e8e6f">
+    <path d="M220 760 l32-80 32 80z"/>
+    <path d="M255 760 l28-70 28 70z"/>
+    <path d="M1190 770 l30-78 30 78z"/>
+    <path d="M1225 770 l24-62 24 62z"/>
+    <path d="M1300 780 l28-74 28 74z"/>
+  </g>
+  <path d="M170 810 C260 790 330 790 410 808 L410 900 L170 900 Z" fill="#8ac9b2" opacity=".8"/>
+  <path d="M0 830 C110 800 190 805 270 830 L270 900 L0 900 Z" fill="#78bca8" opacity=".85"/>
+</svg>

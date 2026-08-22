@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Shikoku illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dff3ff"/>
+      <stop offset="60%" stop-color="#fff9ef"/>
+      <stop offset="100%" stop-color="#fce7ef"/>
+    </linearGradient>
+    <linearGradient id="river" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#92d8ef"/>
+      <stop offset="100%" stop-color="#55a9c9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1240" cy="160" r="110" fill="#ffd47a" opacity=".85"/>
+  <path d="M0 640 C200 590 330 620 510 590 C680 560 850 530 1020 560 C1200 592 1360 545 1600 585 L1600 900 L0 900 Z" fill="#e7f5d9"/>
+  <path d="M180 710 C350 635 500 635 660 700 C770 745 900 760 1040 730 C1150 705 1260 690 1380 720 C1460 740 1520 760 1600 780 L1600 900 L180 900 Z" fill="url(#river)"/>
+  <path d="M300 720 C420 650 500 640 630 698" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" opacity=".7"/>
+  <path d="M780 620 C840 565 910 540 980 545 C1050 550 1110 590 1150 650 C1080 632 1010 638 940 668 C880 694 825 684 780 620 Z" fill="#7c6048"/>
+  <path d="M1060 620 C1120 560 1200 545 1260 560 C1220 590 1200 625 1190 670 C1150 650 1105 642 1060 620 Z" fill="#f8d7b6"/>
+  <path d="M1030 720 C1085 685 1145 685 1200 720 C1150 748 1090 752 1030 720 Z" fill="#fff5cf" opacity=".8"/>
+  <path d="M490 760 C550 715 625 712 690 758 C630 786 555 792 490 760 Z" fill="#fff9e7" opacity=".82"/>
+  <g fill="#76a86a">
+    <path d="M120 800 l28-72 28 72z"/>
+    <path d="M154 800 l22-58 22 58z"/>
+    <path d="M1360 800 l28-72 28 72z"/>
+    <path d="M1394 800 l22-58 22 58z"/>
+  </g>
+</svg>

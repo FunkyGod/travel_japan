@@ -4,6 +4,14 @@ import { useRoute } from 'vue-router'
 import { specialBySlug } from '../data/specials.js'
 import { applyMeta } from '../composables/useMeta.js'
 
+function fallbackImage(event) {
+  const img = event?.target
+  if (img && !img.dataset.fallbackApplied) {
+    img.dataset.fallbackApplied = '1'
+    img.src = '/images/hero-japan.webp'
+  }
+}
+
 const route = useRoute()
 const topic = computed(() => specialBySlug[route.params.topic])
 
@@ -18,7 +26,7 @@ watch(topic, (value) => {
 <template>
   <div v-if="topic" class="page topic-page">
     <section class="topic-hero">
-      <img class="topic-hero-image" :src="topic.image" :alt="`${topic.title}专题封面`" />
+      <img class="topic-hero-image" :src="topic.image" :alt="`${topic.title}专题封面`" @error="fallbackImage" />
       <div class="topic-hero-shade"></div>
       <div class="topic-hero-copy">
         <p class="topic-kicker">{{ topic.emoji }} {{ topic.kicker }}</p>

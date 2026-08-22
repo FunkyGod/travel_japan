@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Setouchi and west Japan illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d9f4ff"/>
+      <stop offset="60%" stop-color="#fff7ea"/>
+      <stop offset="100%" stop-color="#ffe1d1"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7ecbd7"/>
+      <stop offset="100%" stop-color="#4fa4bf"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1160" cy="180" r="115" fill="#ffd36b" opacity=".85"/>
+  <path d="M0 600 C180 555 340 585 500 565 C660 545 760 510 920 540 C1080 570 1210 520 1360 540 C1460 555 1540 565 1600 560 L1600 900 L0 900 Z" fill="url(#water)"/>
+  <path d="M220 730 C360 660 500 660 640 720 C760 770 870 790 1020 745 C1120 715 1210 700 1360 725 C1470 742 1540 760 1600 775 L1600 900 L220 900 Z" fill="#f7e0b7"/>
+  <path d="M320 650 h80 v130 h-80z" fill="#f7f0e3"/>
+  <path d="M300 650 h120 l-15-34 h-90z" fill="#d98e4a"/>
+  <path d="M420 625 c60 20 110 68 110 125 0 65-52 118-118 118 -22 0-42-5-60-14 43-34 68-77 68-121 0-40-16-78-44-108 15-3 28-4 44 0z" fill="#fff4db" opacity=".75"/>
+  <path d="M420 680 l18 36 h-36z" fill="#f18b4e"/>
+  <path d="M915 655 c0-26 21-47 47-47 h8 c26 0 47 21 47 47 v95 h-102z" fill="#f5f3ef"/>
+  <path d="M930 655 c0-18 14-33 32-33 h3 c18 0 32 15 32 33 v78 h-67z" fill="#ffffff"/>
+  <path d="M975 600 l35 30 -35 30 -35-30z" fill="#f46f7d"/>
+  <path d="M850 725 C880 700 925 695 955 725 C925 745 885 755 850 725 Z" fill="#fff7e8"/>
+  <path d="M1170 760 C1240 720 1320 715 1390 760 C1320 790 1240 800 1170 760 Z" fill="#fff0c8" opacity=".8"/>
+  <g fill="#5a8b6a">
+    <path d="M70 780 l26-66 26 66z"/>
+    <path d="M104 780 l22-56 22 56z"/>
+    <path d="M1400 790 l26-66 26 66z"/>
+    <path d="M1436 790 l20-52 20 52z"/>
+  </g>
+</svg>

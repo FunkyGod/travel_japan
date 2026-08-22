@@ -10,6 +10,14 @@ import { seasons } from '../data/seasons.js'
 import { imageForRegion } from '../data/media.js'
 import { specialTopics } from '../data/specials.js'
 
+function fallbackImage(event) {
+  const img = event?.target
+  if (img && !img.dataset.fallbackApplied) {
+    img.dataset.fallbackApplied = '1'
+    img.src = '/images/hero-japan.webp'
+  }
+}
+
 const featuredRoutes = routes.slice(0, 6)
 const seasonPeek = seasons.filter(s => [3, 4, 10, 11].includes(s.month))
 const topItems = top25.map((item, i) => ({
@@ -60,7 +68,7 @@ const recommendedRoutes = computed(() => {
 <template>
   <div class="page">
     <section class="home-hero">
-      <img class="home-hero-image" src="/images/hero-japan.webp" alt="樱花掩映下的日本古街与远山" />
+      <img class="home-hero-image" src="/images/hero-japan.webp" alt="樱花掩映下的日本古街与远山" @error="fallbackImage" />
       <div class="home-hero-shade"></div>
       <div class="home-hero-copy">
         <p class="hero-kicker">JAPAN, AT YOUR PACE</p>
@@ -133,7 +141,7 @@ const recommendedRoutes = computed(() => {
       <SectionHead kicker="专题入口" title="按旅行方式开始" description="滑雪、亲子、徒步或省钱，先选你真正关心的那一种。" />
       <div class="special-grid">
         <router-link v-for="topic in specialTopics" :key="topic.slug" :to="`/${topic.slug}`" class="special-card">
-          <img :src="topic.image" :alt="`${topic.title}专题封面`" loading="lazy" decoding="async" />
+          <img :src="topic.image" :alt="`${topic.title}专题封面`" loading="lazy" decoding="async" @error="fallbackImage" />
           <div class="special-card-shade"></div>
           <div class="special-card-copy"><span>{{ topic.emoji }} {{ topic.kicker }}</span><strong>{{ topic.title }}</strong></div>
         </router-link>

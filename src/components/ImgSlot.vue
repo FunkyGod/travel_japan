@@ -1,18 +1,30 @@
 <script setup>
+import { ref, watch } from 'vue'
+
 // 图片预留槽位：src 为空时渲染占位框，展示该图应有的内容与风格提示。
 // 图片清单详见 docs/图片清单.md，补图时给数据填 image 字段即可。
-defineProps({
+const failed = ref(false)
+
+const props = defineProps({
   src: { type: String, default: '' },
   alt: { type: String, default: '' },
   hint: { type: String, default: '待补充图片' },
   emoji: { type: String, default: '🖼️' },
   ratio: { type: String, default: '16 / 9' },
 })
+
+watch(() => props.src, () => {
+  failed.value = false
+})
+
+function onError() {
+  failed.value = true
+}
 </script>
 
 <template>
   <div class="img-slot" :style="{ aspectRatio: ratio }">
-    <img v-if="src" :src="src" :alt="alt || hint" loading="lazy" decoding="async" />
+    <img v-if="src && !failed" :src="src" :alt="alt || hint" loading="lazy" decoding="async" @error="onError" />
     <div v-else class="img-slot-empty" role="img" :aria-label="alt || hint">
       <span class="img-slot-emoji">{{ emoji }}</span>
       <span class="img-slot-hint">{{ hint }}</span>

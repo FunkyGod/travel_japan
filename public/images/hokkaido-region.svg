@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Hokkaido illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8f0ff"/>
+      <stop offset="60%" stop-color="#f6fbff"/>
+      <stop offset="100%" stop-color="#fff7ea"/>
+    </linearGradient>
+    <linearGradient id="field" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d78ae5"/>
+      <stop offset="100%" stop-color="#8b56c9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1220" cy="170" r="110" fill="#ffdd8d" opacity=".85"/>
+  <path d="M0 520 C180 470 320 500 480 480 C640 460 760 420 920 450 C1080 480 1230 430 1380 455 C1480 470 1550 490 1600 485 L1600 900 L0 900 Z" fill="#ecf7e7"/>
+  <path d="M0 620 C220 560 360 585 530 565 C700 545 820 500 980 525 C1140 550 1290 505 1460 535 C1520 546 1560 555 1600 560 L1600 900 L0 900 Z" fill="url(#field)"/>
+  <path d="M180 650 C300 605 420 600 560 630 C690 658 820 655 950 628 C1090 600 1230 602 1380 636 C1450 652 1510 670 1600 690 L1600 900 L180 900 Z" fill="#8d66d6" opacity=".85"/>
+  <path d="M290 720 C360 680 430 675 500 710 C430 760 360 770 290 720 Z" fill="#fff6cf" opacity=".8"/>
+  <path d="M980 680 C1040 640 1110 638 1170 676 C1130 720 1040 725 980 680 Z" fill="#fff8d7" opacity=".75"/>
+  <path d="M780 420 L900 260 L1020 420 Z" fill="#6f8aa2"/>
+  <path d="M855 290 L900 220 L945 290 Z" fill="#ffffff"/>
+  <path d="M760 420 L1050 420 L985 490 L820 490 Z" fill="#547284"/>
+  <g fill="#8fd8a0">
+    <path d="M120 800 l28-74 28 74z"/>
+    <path d="M155 800 l22-60 22 60z"/>
+    <path d="M1460 800 l28-74 28 74z"/>
+    <path d="M1495 800 l22-60 22 60z"/>
+  </g>
+  <path d="M0 840 C180 810 320 820 490 845 L490 900 L0 900 Z" fill="#6f4d9a" opacity=".3"/>
+</svg>

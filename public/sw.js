@@ -1,8 +1,18 @@
-// 简易离线缓存：首次访问后缓存同源 GET 资源，之后断网也能打开。
-// 采用「缓存优先、后台更新」策略，适用于 Vite 生成的带哈希静态资源。
-const CACHE = 'japan-guide-v2'
+// 简易离线缓存：预缓存应用壳，运行时缓存同源 GET 资源。
+// 对导航请求单独兜底到 /index.html，适合 Vue Router 的 history 模式。
+const CACHE = 'japan-guide-v3'
+const APP_SHELL = [
+  '/index.html',
+  '/manifest.json',
+  '/icon.svg',
+  '/images/hero-japan.webp',
+]
 
-self.addEventListener('install', () => self.skipWaiting())
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE).then((cache) => cache.addAll(APP_SHELL)).then(() => self.skipWaiting())
+  )
+})
 
 self.addEventListener('activate', (e) => {
   e.waitUntil(
@@ -17,6 +27,16 @@ self.addEventListener('fetch', (e) => {
   if (request.method !== 'GET') return
   const url = new URL(request.url)
   if (url.origin !== self.location.origin) return
+
+  if (request.mode === 'navigate') {
+    e.respondWith(
+      fetch(request).catch(async () => {
+        const cache = await caches.open(CACHE)
+        return (await cache.match(request)) || cache.match('/index.html')
+      })
+    )
+    return
+  }
 
   e.respondWith(
     caches.open(CACHE).then(async (cache) => {
