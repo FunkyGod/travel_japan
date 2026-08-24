@@ -20,12 +20,14 @@ export const top25 = [
   { emoji: '🎭', title: '歌舞伎', desc: '鲜艳服饰与戏剧化动作，离奇又迷人。', tag: '文化', routeId: 'tokyo-classic', image: '' },
   { emoji: '⛰️', title: '熊野古道', desc: '沿古代朝圣道徒步，走进三座神圣神社。', tag: '户外', routeId: 'koyasan-kumano', image: '' },
   { emoji: '🌿', title: '屋久岛', desc: '苔藓森林与原始群山，徒步者的世界遗产。', tag: '自然', regionSlug: 'kyushu', image: '' },
+  { emoji: '🦓', title: '能登宝可梦机场', desc: '世界首座宝可梦主题机场，2026-07 起持续至 2029-09；能登铁道也开行主题列车。', tag: '季节', routeId: 'kanazawa-noto', image: '' },
   { emoji: '🚶', title: '妻笼–马笼徒步', desc: '旧中山道驿站间的 7.8 公里，穿行农舍与水车。', tag: '户外', routeId: 'takayama-shirakawago', image: '' },
   { emoji: '💃', title: '京都艺伎舞蹈', desc: '春季的华服与舞姿，如梦似幻的舞台奇观。', tag: '文化', routeId: 'kyoto-classic', image: '' },
   { emoji: '🏔️', title: '上高地', desc: '被北阿尔卑斯高峰环绕，河童桥与梓川令人难忘。', tag: '自然', routeId: 'alps-trek', image: '' },
   { emoji: '🏙️', title: '东京现代建筑', desc: '从表参道到台场，当代建筑的露天博物馆。', tag: '建筑', routeId: 'tokyo-classic', image: '' },
   { emoji: '🎏', title: '节日', desc: '祇园祭与各地祭典，感受日本人真正的放松。', tag: '节日', routeId: 'kyoto-classic', image: '' },
   { emoji: '🐻', title: '北海道原野', desc: '日本最北的辽阔土地，最后的原生自然。', tag: '自然', routeId: 'hokkaido-grand', image: '' },
+  { emoji: '🚄', title: 'Supreme Class 新干线', desc: '东海道新干线全包厢豪华车厢，2026 年起运营，体验顶级日式火车之旅。', tag: '交通', routeId: 'tokyo-classic', image: '' },
 ]
 
 // 供跨组件复用：Top25 → 目标链接

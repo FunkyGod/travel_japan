@@ -27,7 +27,7 @@ const routes = [
   { path: '/tips', name: 'tips', component: Tips, meta: { title: '实用贴士', description: '签证、现金、交通通票、礼仪与紧急号码，出发前必读。' } },
   { path: '/search', name: 'search', component: Search, meta: { title: '搜索', description: '跨路线、美食、温泉、季节、文化与交通的全局搜索。' } },
   { path: '/favorites', name: 'favorites', component: Favorites, meta: { title: '我的收藏', description: '你收藏的日本旅行路线清单。' } },
-  { path: '/:topic(ski|family|hiking|budget)', name: 'special-topic', component: SpecialTopic, meta: { title: '旅行专题', description: '围绕滑雪、亲子、徒步与省钱的日本旅行专题。' } },
+  { path: '/:topic(ski|family|hiking|budget|updates)', name: 'special-topic', component: SpecialTopic, meta: { title: '旅行专题', description: '围绕滑雪、亲子、徒步、省钱与本周更新的日本旅行专题。' } },
 ]
 
 const router = createRouter({

@@ -7,7 +7,7 @@ const open = ref(false)
 const route = useRoute()
 const { favs } = useFavorites()
 const favCount = computed(() => favs.value.length)
-const isSpecial = computed(() => ['/ski', '/family', '/hiking', '/budget'].includes(route.path))
+const isSpecial = computed(() => ['/ski', '/family', '/hiking', '/budget', '/updates'].includes(route.path))
 
 const links = [
   { to: '/', label: '首页', emoji: '🏠' },
@@ -17,6 +17,7 @@ const links = [
   { to: '/food', label: '美食', emoji: '🍱' },
   { to: '/culture', label: '了解日本', emoji: '🏮' },
   { to: '/transport', label: '交通', emoji: '🚄' },
+  { to: '/updates', label: '本周更新', emoji: '📰' },
   { to: '/ski', label: '专题', emoji: '✨' },
   { to: '/tips', label: '实用贴士', emoji: '🧳' },
 ]

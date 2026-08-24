@@ -9,6 +9,7 @@ import { regions } from '../data/regions.js'
 import { seasons } from '../data/seasons.js'
 import { imageForRegion } from '../data/media.js'
 import { specialTopics } from '../data/specials.js'
+import { travelUpdates } from '../data/tips.js'
 
 function fallbackImage(event) {
   const img = event?.target
@@ -20,6 +21,7 @@ function fallbackImage(event) {
 
 const featuredRoutes = routes.slice(0, 6)
 const seasonPeek = seasons.filter(s => [3, 4, 10, 11].includes(s.month))
+const latestUpdates = travelUpdates.slice(0, 3)
 const topItems = top25.map((item, i) => ({
   ...item,
   num: String(i + 1).padStart(2, '0'),
@@ -80,6 +82,23 @@ const recommendedRoutes = computed(() => {
         </div>
       </div>
       <div class="hero-sticker">离线也能查<br /><strong>旅行不掉线</strong></div>
+    </section>
+
+    <section class="weekly-brief" aria-label="本周日本旅行更新">
+      <div class="weekly-brief-head">
+        <p class="section-kicker">WEEKLY BRIEFING · 2026-08-24</p>
+        <h2>本周会影响出行的 3 件事</h2>
+        <router-link to="/updates" class="weekly-brief-more">看完整更新 →</router-link>
+      </div>
+      <ul class="weekly-brief-list">
+        <li v-for="item in latestUpdates" :key="item.title">
+          <span class="weekly-brief-tag">{{ item.tag }}</span>
+          <div>
+            <strong>{{ item.title }}</strong>
+            <p>{{ item.summary }}</p>
+          </div>
+        </li>
+      </ul>
     </section>
 
     <section class="planner-card" aria-labelledby="planner-title">
@@ -223,6 +242,16 @@ const recommendedRoutes = computed(() => {
 .hero-sticker { position: absolute; right: 7%; bottom: 36px; transform: rotate(5deg); padding: 14px 16px; background: #fff7da; color: #9a6844; border-radius: 12px 12px 14px 4px; box-shadow: 8px 10px 22px rgba(47, 24, 32, 0.18); font-size: 12px; line-height: 1.35; }
 .hero-sticker strong { font-size: 15px; }
 .planner-card { position: relative; margin: -42px 20px 0; padding: 26px; background: rgba(255,253,249,0.96); border: 1px solid rgba(255,255,255,0.75); border-radius: 28px; box-shadow: 0 18px 50px rgba(131, 64, 89, 0.16); z-index: 2; }
+.weekly-brief { margin: 22px 20px 0; padding: 22px 24px; background: var(--lemon); border: 1px solid rgba(240, 180, 80, 0.28); border-radius: 22px; }
+.weekly-brief-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.weekly-brief-head h2 { font-size: 20px; margin-top: 4px; }
+.weekly-brief-more { color: var(--sakura-600); font-weight: 800; font-size: 13px; }
+.weekly-brief-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; }
+.weekly-brief-list li { display: grid; grid-template-columns: 110px 1fr; gap: 14px; align-items: start; padding: 12px 14px; background: rgba(255, 253, 249, 0.78); border-radius: 14px; }
+.weekly-brief-tag { color: #7a5c2e; background: #fff7da; font-weight: 900; font-size: 12px; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+.weekly-brief-list strong { font-size: 15px; }
+.weekly-brief-list p { margin: 4px 0 0; color: var(--ink-soft); font-size: 13px; line-height: 1.7; }
+@media (max-width: 600px) { .weekly-brief-list li { grid-template-columns: 1fr; } }
 .planner-intro h2 { font-size: clamp(23px, 3vw, 30px); }
 .planner-intro p:last-child { margin: 8px 0 0; color: var(--ink-soft); font-size: 14px; }
 .planner-controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 22px; }

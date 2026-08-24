@@ -121,6 +121,36 @@ export const specialTopics = [
     ],
     note: '所有价格与政策类信息都可能变化；本文提供预算方法，不替代运营方的实时价格与条款。',
   },
+  {
+    slug: 'updates',
+    emoji: '📰',
+    kicker: 'WEEKLY BRIEFING',
+    title: '本周日本旅行更新',
+    description: '把本月影响出行的政策、新路线与新景点整理成一页，看完再去查具体路线。',
+    image: '/images/hero-japan.webp',
+    facts: [
+      { label: '最新核查', value: '2026-08-24', note: '对照 japan-guide.com / JR 官方 / 立山黑部官网' },
+      { label: '影响范围', value: '铁路、免税、机场', note: '需要看 JR / 国税厅 / 机场实时公告' },
+      { label: '更新频率', value: '每周一次', note: '每周维护与重新对照官方信息' },
+    ],
+    highlights: [
+      { title: 'JR Pass 涨价', body: '官方渠道维持 50,000/80,000/100,000 日元（7/14/21 日），但代理商自 2026-10-01 起涨至 53,000/84,000/105,000 日元；建议尽量走 japanrailpass.net。' },
+      { title: 'Supreme Class 上线', body: '东海道新干线新增全包厢豪华车厢；东京—新大阪单人间约 42,000、双人间约 61,000 日元；2027 财年再加 Supreme Class Seat。' },
+      { title: '免税改机场退税', body: '2026-11 起，消耗品与一般商品合并办理；离境手续成为退税必要环节，留出机场时间。' },
+    ],
+    guides: [
+      { emoji: '📋', title: '出发前一周看这一页', body: '本页只列「会影响行程结构」的变化，更细的票价、预约与开放时间请按官网链接点进去核对。' },
+      { emoji: '📅', title: '生效时间先于金额', body: 'JR Pass 代理商涨价是 2026-10-01，免税新规是 2026-11，黑部宇奈月峡谷路线是 2026-10；同一年里先后有三件事生效。' },
+      { emoji: '⚠️', title: '把官方链接收藏好', body: 'japan-guide、JR 东海与西日本、国税厅、立山黑部官网是这份情报的源头；攻略只做导览，不替代官方公告。' },
+    ],
+    checklist: ['查 JR Pass 适用区间与最新价', '看 2026-11 后退税流程变化', '核对机场与酒店预约时间', '收藏官方公告入口'],
+    related: [
+      { label: '实用贴士', to: '/tips' },
+      { label: '交通指南', to: '/transport' },
+      { label: '金泽＋能登 5 日', to: '/routes/kanazawa-noto' },
+    ],
+    note: '本页条目会随每周维护更新；价格、日期与开放信息以运营方实时公告为准。',
+  },
 ]
 
 export const specialBySlug = Object.fromEntries(specialTopics.map(topic => [topic.slug, topic]))
