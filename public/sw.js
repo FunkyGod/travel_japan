@@ -1,6 +1,6 @@
 // 简易离线缓存：预缓存应用壳，运行时缓存同源 GET 资源。
 // 对导航请求单独兜底到 /index.html，适合 Vue Router 的 history 模式。
-const CACHE = 'japan-guide-v3'
+const CACHE = 'japan-guide-v4'
 const APP_SHELL = [
   '/index.html',
   '/manifest.json',
