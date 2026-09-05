@@ -86,7 +86,7 @@ const recommendedRoutes = computed(() => {
 
     <section class="weekly-brief" aria-label="本周日本旅行更新">
       <div class="weekly-brief-head">
-        <p class="section-kicker">WEEKLY BRIEFING · 2026-08-30</p>
+        <p class="section-kicker">WEEKLY BRIEFING · 2026-09-11</p>
         <h2>本周会影响出行的 3 件事</h2>
         <router-link to="/updates" class="weekly-brief-more">看完整更新 →</router-link>
       </div>
