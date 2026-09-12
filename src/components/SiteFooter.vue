@@ -12,7 +12,7 @@ const year = new Date().getFullYear()
       <p class="footer-note">
         内容整理自公开旅行资料，供个人出行参考；票价、汇率与政策请以官方实时信息为准。
       </p>
-      <p class="footer-meta">© {{ year }} Japan Travel Guide · 周维护更新于 2026-09-11</p>
+      <p class="footer-meta">© {{ year }} Japan Travel Guide · 周维护更新于 2026-09-13</p>
     </div>
   </footer>
 </template>
