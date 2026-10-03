@@ -86,8 +86,8 @@ const recommendedRoutes = computed(() => {
 
     <section class="weekly-brief" aria-label="本周日本旅行更新">
       <div class="weekly-brief-head">
-        <p class="section-kicker">WEEKLY BRIEFING · 2026-09-27</p>
-        <h2>本周会影响出行的 3 件事</h2>
+        <p class="section-kicker">TRAVEL BRIEFING · 2026-10-04</p>
+        <h2>现在会影响出行的 3 件事</h2>
         <router-link to="/updates" class="weekly-brief-more">看完整更新 →</router-link>
       </div>
       <ul class="weekly-brief-list">
@@ -96,6 +96,9 @@ const recommendedRoutes = computed(() => {
           <div>
             <strong>{{ item.title }}</strong>
             <p>{{ item.summary }}</p>
+            <div v-if="item.sources?.length" class="weekly-brief-sources">
+              <a v-for="source in item.sources" :key="source.url" :href="source.url" target="_blank" rel="noreferrer noopener">{{ source.label }} ↗</a>
+            </div>
           </div>
         </li>
       </ul>
@@ -251,6 +254,8 @@ const recommendedRoutes = computed(() => {
 .weekly-brief-tag { color: #7a5c2e; background: #fff7da; font-weight: 900; font-size: 12px; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
 .weekly-brief-list strong { font-size: 15px; }
 .weekly-brief-list p { margin: 4px 0 0; color: var(--ink-soft); font-size: 13px; line-height: 1.7; }
+.weekly-brief-sources { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; font-size: 12px; }
+.weekly-brief-sources a { color: var(--sakura-600); text-decoration: underline; text-underline-offset: 2px; }
 @media (max-width: 600px) { .weekly-brief-list li { grid-template-columns: 1fr; } }
 .planner-intro h2 { font-size: clamp(23px, 3vw, 30px); }
 .planner-intro p:last-child { margin: 8px 0 0; color: var(--ink-soft); font-size: 14px; }

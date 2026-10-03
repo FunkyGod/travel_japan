@@ -26,6 +26,10 @@ import { formatYenRange } from '../utils/format.js'
         <ul>
           <li v-for="b in t.bullets" :key="b">{{ b }}</li>
         </ul>
+        <div v-if="t.sources?.length" class="tip-sources">
+          <span>官方来源：</span>
+          <a v-for="source in t.sources" :key="source.url" :href="source.url" target="_blank" rel="noreferrer noopener">{{ source.label }} ↗</a>
+        </div>
       </div>
     </div>
 
@@ -86,6 +90,9 @@ import { formatYenRange } from '../utils/format.js'
 .tip-desc { margin: 12px 0 10px; color: var(--ink-soft); font-size: 15px; }
 .tip-card ul { margin: 0; padding-left: 20px; }
 .tip-card li { margin-bottom: 6px; font-size: 14px; }
+.tip-sources { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; font-size: 12px; }
+.tip-sources span { color: var(--ink-faint); }
+.tip-sources a { color: var(--sakura-600); text-decoration: underline; text-underline-offset: 2px; }
 
 .budget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .budget-card {

@@ -56,6 +56,10 @@ watch(topic, (value) => {
           <span class="topic-highlight-num">0{{ index + 1 }}</span>
           <h3>{{ highlight.title }}</h3>
           <p>{{ highlight.body }}</p>
+          <div v-if="highlight.sources?.length" class="topic-sources">
+            <span>来源：</span>
+            <a v-for="source in highlight.sources" :key="source.url" :href="source.url" target="_blank" rel="noreferrer noopener">{{ source.label }} ↗</a>
+          </div>
         </article>
       </div>
     </section>
@@ -141,6 +145,9 @@ watch(topic, (value) => {
 .topic-highlight-num { color: var(--sakura-300); font-size: 14px; font-weight: 900; letter-spacing: .1em; }
 .topic-highlight h3 { margin-top: 18px; font-size: 19px; }
 .topic-highlight p { margin: 8px 0 0; color: var(--ink-soft); font-size: 14px; line-height: 1.75; }
+.topic-sources { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 12px; font-size: 12px; line-height: 1.5; }
+.topic-sources span { color: var(--ink-faint); }
+.topic-sources a { color: var(--sakura-600); text-decoration: underline; text-underline-offset: 2px; }
 .topic-guides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .topic-guide { display: flex; gap: 12px; padding: 18px; background: var(--sakura-50); border: 1px solid var(--sakura-100); border-radius: 18px; }
 .topic-guide-emoji { font-size: 28px; line-height: 1; }

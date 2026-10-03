@@ -27,7 +27,7 @@ export const top25 = [
   { emoji: '🏙️', title: '东京现代建筑', desc: '从表参道到台场，当代建筑的露天博物馆。', tag: '建筑', routeId: 'tokyo-classic', image: '' },
   { emoji: '🎏', title: '节日', desc: '祇园祭与各地祭典，感受日本人真正的放松。', tag: '节日', routeId: 'kyoto-classic', image: '' },
   { emoji: '🐻', title: '北海道原野', desc: '日本最北的辽阔土地，最后的原生自然。', tag: '自然', routeId: 'hokkaido-grand', image: '' },
-  { emoji: '🚄', title: 'Supreme Class 新干线', desc: '东海道新干线 Supreme Class 将于 2026-10-01 起启动，东京—新大阪个室票价有 42,100 / 60,500 日元起的官方档位。', tag: '交通', routeId: 'tokyo-classic', image: '' },
+  { emoji: '🚄', title: 'Supreme Class 新干线', desc: '东海道・山阳新干线 Supreme Class 已于 2026-10-01 启用，东京—新大阪个室有 42,100 / 60,500 日元起的官方参考档位；价格与当天运行车次以 JR 东海页面为准。', tag: '交通', routeId: 'tokyo-classic', image: '' },
 ]
 
 // 供跨组件复用：Top25 → 目标链接
