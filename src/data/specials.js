@@ -160,3 +160,24 @@ export const specialTopics = [
 ]
 
 export const specialBySlug = Object.fromEntries(specialTopics.map(topic => [topic.slug, topic]))
+
+// 仅展示本次可由官方页面复核的条目；旧的历史记录保留在源文件中供审计，不再作为当前建议展示。
+specialBySlug.updates.facts = [
+  { label: '最新核查', value: '2026-10-18', note: '本周为半月维护周期：体育之日 4 天连休（10/10–13）已结束、JR 九州鹿儿岛本线 10/10 全線運行再开后稳定运行、志賀高原一沼紅叶本周进入尾声；本周新增 11/01 免税新规 14 天倒计时、11/23 首里城正殿一般公開 36 天倒计时、11/3 文化之日 3 天连休预测、滑雪季 12 月开滑前的准备动向。每项附来源并注明核验日期；运行、库存和预约仍需出发前再次确认。' },
+  { label: '当前重点', value: '11 月双轨制度变化 + 冬季滑雪季准备', note: 'JR Pass / Supreme Class 已兑现，11/01 免税新规与 11/23 首里城正殿一般公開将在 11 月生效；冬季滑雪 12 月开滑窗口临近。' },
+  { label: '更新频率', value: '每半月一次（本次维护：2026-10-18）', note: '运行、库存、价格和预约仍需出发前再次确认。' },
+]
+specialBySlug.updates.highlights = [
+  { title: 'JR Pass 海外指定代理店价格', body: '2026-10-01 起，海外指定代理店的成人普通车 7/14/21 日为 53,000/84,000/105,000 日元，Green Car 为 74,000/116,000/147,000 日元；在线购买价格另列，儿童价和购买条件以官方价格页为准。', sources: [{ label: 'JR Pass 官方价格页', url: 'https://japanrailpass.net/cn/purchase/price/' }] },
+  { title: 'Supreme Class 已启用', body: 'JR 东海官方页面显示 Supreme Class Cabin 自 2026-10-01 启用；东京—新大阪通常期、成人单程的 EX 预约参考价为 1 人 Cabin 42,100 日元、2 人 Cabin 60,500 日元，淡旺季和 Smart EX 价格不同，实际运行车次需当天查询。', sources: [{ label: 'JR 东海 Supreme Class 官方页', url: 'https://railway.jr-central.co.jp/supremeclass/index.html' }] },
+  { title: 'JR 九州鹿儿岛本线已恢复全线运行（10/10 兑现后稳定）', body: 'JR 九州公告称，鹿儿岛本线在来线自 2026-10-10 起按通常时刻表全线恢复运行；10/10 兑现后截至 10/18 未见地震/天气二次影响的运行公告，九州西部跨城移动（熊本⇔八代⇔水俣⇔川内⇔鹿儿岛中央）恢复正常；出发当天仍需查看临时运行公告。', sources: [{ label: 'JR 九州运行公告', url: 'https://www.jrkyushu.co.jp/trains/info/inc/info_top.html' }] },
+  { title: '首里城正殿 11 月 23 日一般公開 倒计时 36 天', body: '首里城正殿内部自 2026-11-23 起一般公开，需预约指定日期与时间；2026-11-23 至 12-31 入场的第二批个人票已于 10 月 1 日 13:00 开售，首批 11/23 单日个人票已基本售罄，余票以官方页面为准；冲绳 11 月仍处台风季尾声，航班与海面状况需同步关注。', sources: [{ label: '首里城公园预约与票价', url: 'https://oki-park.jp/shurijo/ticket_guide/' }] },
+  { title: '免税制度 11 月 1 日改为离境返金方式 倒计时 14 天', body: '截至 10 月 31 日仍按现行制度办理（5,000 日元门槛、消耗品规则不变）；2026-11-01 起购买时先支付含税价，出境时由海关确认在购买日起 90 日内携带物品离境，再按免税店流程返还消费税相当额；10 月底为最后一周现行规则购物窗口，新旧制度不要混用。', sources: [{ label: '日本国税厅制度说明', url: 'https://www.nta.go.jp/publication/pamph/shohi/menzei/201805/format/002.htm' }] },
+]
+
+// 搜索页直接读取 specialTopics，也必须同步当前核验后的更新内容。
+const updatesTopic = specialTopics.find(topic => topic.slug === 'updates')
+if (updatesTopic) {
+  updatesTopic.facts = specialBySlug.updates.facts
+  updatesTopic.highlights = specialBySlug.updates.highlights
+}
