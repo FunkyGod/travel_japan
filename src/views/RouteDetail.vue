@@ -70,7 +70,7 @@ function goBack() {
 
 const usefulLinks = [
   { label: '日本国家旅游局 JNTO', url: 'https://www.japan.travel/zh-cn/' },
-  { label: 'JR Pass 官方', url: 'https://japanrailpass.net/zh-cn/' },
+  { label: 'JR Pass 官方', url: 'https://japanrailpass.net/cn/' },
   { label: '换乘查询 HyperDia', url: 'https://www.hyperdia.com/zh/' },
   { label: '地图与导航', url: 'https://www.google.com/maps' },
 ]
