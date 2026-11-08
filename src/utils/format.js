@@ -1,8 +1,8 @@
-// 离线回退基准：2026-10-30 中国人民银行授权中国外汇交易中心公布
-// 100 日元 = 4.2419 人民币，折算为 1 人民币 ≈ 23.57 日元。
+// 离线回退基准：2026-11-06 中国人民银行授权中国外汇交易中心公布
+// 100 日元 = 4.2534 人民币，折算为 1 人民币 ≈ 23.51 日元。
 // 这不是实时汇率；实际支付前请以银行或支付平台实时汇率为准。
-// 来源：https://www.chinamoney.com.cn/chinese/bkccpr/
-export const RATE = 23.57
+// 来源：https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json
+export const RATE = 23.51
 
 // 日元 → 人民币（四舍五入到整数）
 export function yenToCny(yen) {
